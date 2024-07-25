@@ -1,0 +1,73 @@
+name: alan.forbes/alan-ci
+on:
+  push:
+  workflow_dispatch:
+concurrency:
+  group: "${{ github.ref }}"
+  cancel-in-progress: true
+env:
+  AFKEY: "${{ secrets.AFKEY }}"
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    #container:
+    #  image: "$CI_REGISTRY/sycl/computecpp-containers/ubuntu:18.04"
+    if: ${{ github.event_name }} == 'web' || ${{ github.event_name }} == 'pipeline'
+    timeout-minutes: 60
+    env:
+      VAR_ONE: blah
+    steps:
+    - uses: actions/checkout@v4.1.0
+      with:
+        fetch-depth: 50
+        lfs: true
+    - run: echo hello from stage1
+    - run: echo python -u script.py
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    #container:
+    #  image: "$CI_REGISTRY/sycl/computecpp-containers/ubuntu:18.04"
+    if: ${{ github.event_name }} == 'web' || ${{ github.event_name }} == 'pipeline'
+    timeout-minutes: 60
+    env:
+      VAR_ONE: blah
+    steps:
+    - uses: actions/checkout@v4.1.0
+      with:
+        fetch-depth: 50
+        lfs: true
+    - run: echo hello from stage2
+    - run: python -u script.py
+  job3:
+    needs: job2
+    runs-on: ubuntu-latest
+    #container:
+    #  image: "$CI_REGISTRY/sycl/computecpp-containers/ubuntu:18.04"
+    if: ${{ github.event_name }} == 'web' || ${{ github.event_name }} == 'pipeline'
+    timeout-minutes: 60
+    env:
+      VAR_ONE: blah
+    steps:
+    - uses: actions/checkout@v4.1.0
+      with:
+        fetch-depth: 50
+        lfs: true
+    - run: echo hello from stage3
+    - run: python -u script.py
+  job4:
+    needs: job3
+    runs-on: ubuntu-latest
+    #container:
+    #  image: "$CI_REGISTRY/sycl/computecpp-containers/ubuntu:18.04"
+    if: ${{ github.event_name }} == 'web' || ${{ github.event_name }} == 'pipeline'
+    timeout-minutes: 60
+    env:
+      VAR_ONE: blah
+    steps:
+    - uses: actions/checkout@v4.1.0
+      with:
+        fetch-depth: 50
+        lfs: true
+    - run: echo hello from stage4
+    - run: echo python -u script.py
