@@ -10,8 +10,8 @@ env:
 jobs:
   job1:
     runs-on: ubuntu-latest
-    container:
-      image: "$CI_REGISTRY/sycl/computecpp-containers/ubuntu:18.04"
+    #container:
+    #  image: "$CI_REGISTRY/sycl/computecpp-containers/ubuntu:18.04"
     if: ${{ github.event_name }} == 'web' || ${{ github.event_name }} == 'pipeline'
     timeout-minutes: 60
     env:
@@ -26,8 +26,8 @@ jobs:
   job2:
     needs: job1
     runs-on: ubuntu-latest
-    container:
-      image: "$CI_REGISTRY/sycl/computecpp-containers/ubuntu:18.04"
+    #container:
+    #  image: "$CI_REGISTRY/sycl/computecpp-containers/ubuntu:18.04"
     if: ${{ github.event_name }} == 'web' || ${{ github.event_name }} == 'pipeline'
     timeout-minutes: 60
     env:
@@ -42,8 +42,8 @@ jobs:
   job3:
     needs: job2
     runs-on: ubuntu-latest
-    container:
-      image: "$CI_REGISTRY/sycl/computecpp-containers/ubuntu:18.04"
+    #container:
+    #  image: "$CI_REGISTRY/sycl/computecpp-containers/ubuntu:18.04"
     if: ${{ github.event_name }} == 'web' || ${{ github.event_name }} == 'pipeline'
     timeout-minutes: 60
     env:
@@ -58,8 +58,8 @@ jobs:
   job4:
     needs: job3
     runs-on: ubuntu-latest
-    container:
-      image: "$CI_REGISTRY/sycl/computecpp-containers/ubuntu:18.04"
+    #container:
+    #  image: "$CI_REGISTRY/sycl/computecpp-containers/ubuntu:18.04"
     if: ${{ github.event_name }} == 'web' || ${{ github.event_name }} == 'pipeline'
     timeout-minutes: 60
     env:
