@@ -4,7 +4,7 @@
 
 from os import getenv, getcwd, mkdir, chdir, listdir, environ, rename, path
 from pathlib import Path
-import platform, git, re
+import platform, re
 #import lib as ci_lib
 import random
 
