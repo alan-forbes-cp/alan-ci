@@ -10,7 +10,8 @@ env:
 jobs:
   jt:
     runs-on: ubuntu-latest
-    if: contains('111', '2') != true && ( contains('2222', '3') || contains('3333', '1') )
+    if: contains('111', '2') != true && 
+        ( contains('2222', '3') || contains('3333', '1') )
     steps:
     - run: echo hello from stage1
   job1:
