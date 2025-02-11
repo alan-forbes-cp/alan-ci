@@ -15,7 +15,7 @@ jobs:
     steps:
     - name: this
       run: echo hello from stage1
-   - name: that
+    - name: that
       run: echo hello from stage1
     - name: other
       run: echo hello from stage1
