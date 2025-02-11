@@ -14,11 +14,11 @@ jobs:
         ( contains('2222', '3') || contains('3333', '3') )
     steps:
     - name: this
-      - run: echo hello from stage1
+      run: echo hello from stage1
     - name: that
-      - run: echo hello from stage1
+      run: echo hello from stage1
     - name: other
-      - run: echo hello from stage1
+      run: echo hello from stage1
   job1:
     runs-on: ubuntu-latest
     #container:
