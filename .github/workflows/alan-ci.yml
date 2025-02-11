@@ -8,6 +8,11 @@ concurrency:
 env:
   AFKEY: "${{ secrets.AFKEY }}"
 jobs:
+  jt:
+    runs-on: ubuntu-latest
+    if: contains('111', '2') != true && ( contains('2222', '2') || contains('3333', '1') )
+    steps:
+    - run: echo hello from stage1
   job1:
     runs-on: ubuntu-latest
     #container:
